@@ -17,30 +17,24 @@ export function TodoItem({ todo }) {
                 type="checkbox"
                 checked={isCompleted}
                 onChange={handleCompletedChange}
-                className="mr-2 form-checkbox h-5 w-5 text-gray-600"
+                className="mr-2 form-checkbox h-5 w-5 text-gray-600 border-gray-300 rounded"
             />
 
-
-            <p class="w-full text-grey-darkest">
-                {icon && (
-                    todo.icon.type === 'emoji' ?
-                        <span className="mr-2">{todo.icon.emoji}</span>
-                        : '')}
-                {properties.Name.title[0].plain_text}
+            <p className="w-full text-grey-darkest">
+                {
+                    icon && (
+                        todo.icon.type === 'emoji' ?
+                            <span className="mr-2">{todo.icon.emoji}</span>
+                            : ''
+                    )
+                }
+                {
+                    properties.Name.title[0] ?
+                        properties.Name.title[0].plain_text
+                        : 'Untitled'
+                }
             </p>
-            <button class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green">Done</button>
-            <button class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red">Remove</button>
+            <button className="flex-no-shrink p-2 ml-2 border-2 rounded hover:text-red-600 hover:border-red-500">Delete</button>
         </div>
     )
 }
-
-{/*
-<div class="flex mb-4 items-center">
-    
-</div> */}
-
-
-            // <li key={id}>
-            //
-            //     {url}
-            // </li>

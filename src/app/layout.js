@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <nav className="flex p-6 bg-slate-100">
-          <div className='flex items-center space-x-5'>
+          <div className='flex items-center gap-7'>
             <Link href="/"
               className="text-2xl font-bold text-gray-900"
             >Home</Link>
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         </nav>
         <div className="flex items-center justify-center w-full h-14 bg-red-500">
           <p className="text-2xl font-bold text-white">
-            This app is in development, some functions may not be working
+            No momento o app apenas lista as tarefas. Em breve as funcionalidades de adicionar e remover tarefas serão implementadas!
           </p>
         </div>
         {children}

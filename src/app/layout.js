@@ -24,11 +24,6 @@ export default function RootLayout({ children }) {
             >API</Link>
           </div>
         </nav>
-        <div className="flex items-center justify-center w-full h-10 bg-red-500">
-          <p className="text-1xl font-bold text-white">
-            No momento o app apenas lista as tarefas. Em breve as funcionalidades de adicionar e remover tarefas serão implementadas!
-          </p>
-        </div>
         {children}
       </body>
     </html>

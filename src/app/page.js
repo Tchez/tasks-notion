@@ -1,30 +1,21 @@
-"use client"
-
-import axios from "axios"
-import { useState, useEffect } from "react"
-import { TodoList } from "@/components/Todolist"
+'use client'
+import { TodoList } from "@/components/TodoList"
+import { useTodoList } from "@/hooks/useTodoList"
 
 export default function Home() {
-  const [todoList, setTodoList] = useState([])
+  const { todoList, isLoading, isError } = useTodoList()
 
-  useEffect(() => {
-    const fetchTodoList = async () => {
-      const response = await axios.get("/api/database")
-      setTodoList(response.data)
-    }
-
-    fetchTodoList()
-  }, [])
+  if (isError) {
+    return <div className="text-center  mt-28">
+      <p className="text-red-600 mb-6 font-bold text-[2rem]">Failed to load tasks!</p>
+      <p className="text-gray-600 text-[1.7rem]">Please, check your network and database connection.</p>
+    </div >
+  }
 
   return (
     <div className="h-max mt-20">
       <h1 className="text-4xl font-bold text-center mb-5">Tasks App</h1>
-
-      {!todoList.length && (
-        <p className="text-center text-xl mt-5">Loading...</p>
-      )}
-
-      <TodoList todoList={todoList} />
+      {<TodoList todoList={todoList} />}
     </div>
   )
 }

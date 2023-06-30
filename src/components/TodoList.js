@@ -13,9 +13,23 @@ export function TodoList({ todoList }) {
                         </div>
                     </div>
                     <div>
-                        {todoList.map((todo) => (
-                            <TodoItem key={todo.id} todo={todo} />
-                        ))}
+                        {
+                            todoList ? (
+                                todoList.length > 0 ? (
+                                    todoList.map((todo) => (
+                                        <TodoItem key={todo.id} todo={todo} />
+                                    ))
+                                ) : (
+                                    <div className="text-center mt-12 mb-10">
+                                        <p className="text-gray-600 text-[1.7rem]">No tasks found!</p>
+                                    </div >
+                                )
+                            ) : (
+                                <div className="text-center mt-12 mb-10">
+                                    <p className="text-gray-600 text-[1.7rem]">Loading tasks...</p>
+                                </div >
+                            )
+                        }
                     </div>
                 </div>
             </div>
